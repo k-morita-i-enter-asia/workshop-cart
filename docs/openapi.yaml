@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Workshop Cart API
+  version: 1.0.0
+paths:
+  /orders:
+    get:
+      summary: 注文一覧を取得する
+      responses:
+        "200":
+          description: 注文一覧
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/OrderListItem"
+components:
+  schemas:
+    OrderListItem:
+      type: object
+      required:
+        - id
+        - itemTotalCents
+        - totalCents
+      properties:
+        id:
+          type: string
+        itemTotalCents:
+          type: integer
+          description: 商品小計（セント）
+        totalCents:
+          type: integer
+          description: 配送料を含む合計（セント）

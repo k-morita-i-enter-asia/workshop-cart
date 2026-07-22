@@ -22,6 +22,7 @@ components:
       required:
         - id
         - itemTotalCents
+        - shippingFeeCents
         - totalCents
       properties:
         id:
@@ -29,6 +30,9 @@ components:
         itemTotalCents:
           type: integer
           description: 商品小計（セント）
+        shippingFeeCents:
+          type: integer
+          description: 配送料（セント）
         totalCents:
           type: integer
           description: 配送料を含む合計（セント）

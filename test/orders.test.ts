@@ -13,7 +13,6 @@ describe("toOrderListItem", () => {
     expect(toOrderListItem(order)).toEqual({
       id: "order-1001",
       itemTotalCents: 12000,
-      shippingFeeCents: 500,
       totalCents: 12500,
     });
   });

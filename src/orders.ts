@@ -9,6 +9,7 @@ export interface OrderRecord {
 export interface OrderListItem {
   id: string;
   itemTotalCents: number;
+  shippingFeeCents: number;
   totalCents: number;
 }
 
@@ -17,6 +18,7 @@ export function toOrderListItem(order: OrderRecord): OrderListItem {
   return {
     id: order.id,
     itemTotalCents: order.itemTotalCents,
+    shippingFeeCents: order.shippingFeeCents,
     totalCents: order.itemTotalCents + order.shippingFeeCents,
   };
 }

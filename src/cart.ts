@@ -15,9 +15,7 @@ export function subtotalCents(items: CartItem[]): number {
  * discountPercent は整数のパーセント(例: 10 は「10%オフ」)。
  */
 export function applyDiscount(subtotal: number, discountPercent: number): number {
-  // BUG: パーセントを「セント額」として引いてしまっている。
-  // 本来は subtotal に (1 - discountPercent/100) を掛けるべき。
-  return subtotal - discountPercent;
+  return Math.round(subtotal * (1 - discountPercent / 100));
 }
 
 const TAX_RATE = 0.1; // 10% の消費税

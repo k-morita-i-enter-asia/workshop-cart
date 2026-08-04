@@ -5,6 +5,7 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  id-token: write
 jobs:
   review:
     runs-on: ubuntu-latest
@@ -12,5 +13,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: "この PR の差分を、リポジトリの CLAUDE.md と .claude/agents/code-reviewer.md の観点でレビューし、指摘を PR にコメントしてください。"

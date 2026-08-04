@@ -9,8 +9,9 @@ export interface OrderRecord {
 export interface OrderListItem {
   id: string;
   itemTotalCents: number;
-  shippingFeeCents: number;
   totalCents: number;
+  shippingFee: number;
+  customerEmail: string;
 }
 
 /** 内部の注文データを、注文一覧 API のレスポンスへ変換する。 */
@@ -18,7 +19,8 @@ export function toOrderListItem(order: OrderRecord): OrderListItem {
   return {
     id: order.id,
     itemTotalCents: order.itemTotalCents,
-    shippingFeeCents: order.shippingFeeCents,
     totalCents: order.itemTotalCents + order.shippingFeeCents,
+    shippingFee: order.shippingFeeCents,
+    customerEmail: order.customerEmail,
   };
 }

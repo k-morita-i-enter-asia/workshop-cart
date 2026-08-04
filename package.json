@@ -9,7 +9,8 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "build": "tsc"
+    "build": "tsc",
+    "review": "git diff | claude -p \"あなたは workshop-cart のレビュー担当です。渡された差分を CLAUDE.md のチームルールに照らして確認し、違反があれば ファイル:行 と内容を1件ずつ挙げてください。違反がなければ OK とだけ返してください。ファイルは編集しないでください。\""
   },
   "devDependencies": {
     "typescript": "^5.6.0",
